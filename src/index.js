@@ -1,13 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Component from './component';
 
-class Panel extends React.Component {
-
-  render() {
-    return (
-      <div>Test</div>
-    );
-  }
-}
-
-ReactDOM.render(<Panel />, document.getElementById('root'));
+ReactDOM.render(<Component />, document.getElementById('root'));

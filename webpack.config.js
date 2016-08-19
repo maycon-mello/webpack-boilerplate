@@ -1,9 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
+
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:1337',
-    'webpack/hot/dev-server',
+    'webpack/hot/only-dev-server',
     './src/index',
   ],
   output: {
@@ -12,12 +13,14 @@ module.exports = {
     publicPath: '/static/',
   },
   module: {
-    loaders: [
-      { test: /\.js$/, loaders: ['babel'], include: path.join(__dirname, 'src') },
-    ]
+    loaders: [{
+      test: /\.js$/,
+      loaders: ['react-hot', 'babel'],
+      include: path.join(__dirname, 'src'),
+    }],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-  ]
+  ],
 };
